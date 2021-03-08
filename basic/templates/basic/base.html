@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+
+<!-- munchbox/  05 Dec 2019 10:05:53 GMT -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="keywords" content="#">
+    <meta name="description" content="#">
+    <title>Munchbox | Food Delivery Hub</title>
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="#">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="#">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="#">
+    <link rel="apple-touch-icon-precomposed" href="#">
+    <link rel="shortcut icon" href="#">
+    <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Fontawesome -->
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+    <!-- Flaticons -->
+    <link href="{% static 'css/font/flaticon.css' %}" rel="stylesheet">
+    <!-- Swiper Slider -->
+    <link href="{% static 'css/swiper.min.css' %}" rel="stylesheet">
+    <!-- Range Slider -->
+    <link href="{% static 'css/ion.rangeSlider.min.css' %}" rel="stylesheet">
+    <!-- magnific popup -->
+    <link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet">
+    <!-- Nice Select -->
+    <link href="{% static 'css/nice-select.css' %}" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <!-- Custom Responsive -->
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;display=swap" rel="stylesheet">
+    <!-- place -->
+
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+</head>
+
+<body>
+    {% include 'basic/header.html' %}
+    {% block content %}{% endblock content %}
+    <footer class="section-padding bg-light-theme pt-0 u-line bg-black">
+       
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl col-lg-4 col-md-4 col-sm-6">
+                    <div class="footer-contact">
+                        <h6 class="text-custom-white">Need Help</h6>
+                        <ul>
+                            <li class="fw-600"><span class="text-light-white">Call Us</span> <a href="tel:" class="text-custom-white">+(347) 123 456 789</a>
+                            </li>
+                            <li class="fw-600"><span class="text-light-white">Email Us</span> <a href="mailto:" class="text-custom-white">demo@domain.com</a>
+                            </li>
+                            <li class="fw-600"><span class="text-light-white">Join our twitter</span> <a href="#" class="text-custom-white">@munchbox</a>
+                            </li>
+                            <li class="fw-600"><span class="text-light-white">Join our instagram</span> <a href="#" class="text-custom-white">@munchbox</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl col-lg-4 col-md-4 col-sm-6">
+                    <div class="footer-links">
+                        <h6 class="text-custom-white">Get to Know Us</h6>
+                        <ul>
+                            <li><a href="#" class="text-light-white fw-600">About Us</a>
+                            </li>
+                            <li><a href="#" class="text-light-white fw-600">Blog</a>
+                            </li>
+                            <li><a href="#" class="text-light-white fw-600">Socialize</a>
+                            </li>
+                            <li><a href="#" class="text-light-white fw-600">Munchbox</a>
+                            </li>
+                            <li><a href="#" class="text-light-white fw-600">Perks</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl col-lg-4 col-md-4 col-sm-6">
+                    <div class="footer-links">
+                        <h6 class="text-custom-white">Let Us Help You</h6>
+                        <ul>
+                            <li><a href="#" class="text-light-white fw-600">Account Details</a>
+                            </li>
+                            <li><a href="#" class="text-light-white fw-600">Order History</a>
+                            </li>
+                            <li><a href="#" class="text-light-white fw-600">Find restaurant</a>
+                            </li>
+                            <li><a href="#" class="text-light-white fw-600">Login</a>
+                            </li>
+                            <li><a href="#" class="text-light-white fw-600">Track order</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl col-lg-4 col-md-4 col-sm-6">
+                    <div class="footer-links">
+                        <h6 class="text-custom-white">Doing Business</h6>
+                        <ul>
+                            <li><a href="#" class="text-light-white fw-600">Suggest an Idea</a>
+                            </li>
+                            <li><a href="#" class="text-light-white fw-600">Be a Partner restaurant</a>
+                            </li>
+                            <li><a href="#" class="text-light-white fw-600">Create an Account</a>
+                            </li>
+                            <li><a href="#" class="text-light-white fw-600">Help</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl col-lg-4 col-md-4 col-sm-6">
+                    <div class="footer-links">
+                        <h6 class="text-custom-white">Download Apps</h6>
+                        <div class="appimg">
+                            <a href="#">
+                                <img src="assets/img/playstore.jpg" class="img-fluid" alt="app logo">
+                            </a>
+                        </div>
+                        <div class="appimg">
+                            <a href="#">
+                                <img src="assets/img/appstore.jpg" class="img-fluid" alt="app logo">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl col-lg-4 col-md-4 col-sm-6">
+                    <div class="footer-contact">
+                        <h6 class="text-custom-white">Newsletter</h6>
+                        <form class="subscribe_form">
+                            <div class="input-group">
+                                <input type="text" class="form-control form-control-submit" name="email" placeholder="Enter your email">
+                                <span class="input-group-btn">
+                      <button class="btn btn-second btn-submit" type="button"><i class="fas fa-paper-plane"></i></button>
+                 </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="ft-social-media">
+                        <h6 class="text-center text-light-black">Follow us</h6>
+                        <ul>
+                            <li> <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li> <a href="#"><i class="fab fa-twitter"></i></a>
+                            </li>
+                            <li> <a href="#"><i class="fab fa-instagram"></i></a>
+                            </li>
+                            <li> <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                            </li>
+                            <li> <a href="#"><i class="fab fa-youtube"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright bg-black">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="payment-logo mb-md-20"> <span class="text-light-white fs-14 mr-3">We are accept</span>
+                        <div class="payemt-icon">
+                            <img src="{% static 'img/card-front.jpg' %}" alt="#">
+                            <img src="{% static 'img/visa.jpg' %}" alt="#">
+                            <img src="{% static 'img/amex-card-front.png' %}" alt="#">
+                            <img src="{% static 'img/mastercard.png' %}" alt="#">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center medewithlove align-self-center">
+                    
+                </div>
+                <div class="col-lg-4">
+                    <div class="copyright-text"> <span class="text-light-white"><a href="templateshub.net">Designed By <i><strong>LordImpaler</strong></i></a> </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <!-- modal boxes -->
+    <div class="modal fade" id="address-box">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title fw-700">Change Address</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="location-picker">
+                        <input type="text" class="form-control" placeholder="Enter a new address">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="search-box">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="search-box p-relative full-width">
+                        <input type="text" class="form-control" placeholder="Pizza, Burger, Chinese">
+                    </div>
+                </div>
+                <div class="modal-body"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Place all Scripts Here -->
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <!-- Popper -->
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <!-- Bootstrap -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Range Slider -->
+    <script src="{% static 'js/ion.rangeSlider.min.js' %}"></script>
+    <!-- Swiper Slider -->
+    <script src="{% static 'js/swiper.min.js' %}"></script>
+    <!-- Nice Select -->
+    <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+    <!-- magnific popup -->
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <!-- Maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnd9JwZvXty-1gHZihMoFhJtCXmHfeRQg"></script>
+    <!-- sticky sidebar -->
+    <script src="{% static 'js/sticksy.js' %}"></script>
+    <!-- Munch Box Js -->
+    <script src="{% static 'js/munchbox.js' %}"></script>
+    <!-- /Place all Scripts Here -->
+</body>
+
+
+<!-- munchbox/  05 Dec 2019 10:11:37 GMT -->
+</html>
