@@ -1,0 +1,207 @@
+{% extends 'basic/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="inner-wrapper">
+        <div class="container-fluid no-padding">
+            <div class="row no-gutters">
+                <div class="col-md-6">
+                    <div class="main-banner">
+                        <img src="{% static 'img/banner/banner-2.jpg' %}" class="img-fluid full-width main-img" alt="banner">
+                        <div class="overlay-2 main-padding">
+                            
+                        </div>
+                        <img src="{% static 'img/banner/burger.png' %}" class="footer-img" alt="footer-img">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="section-2 main-page main-padding">
+                        <div class="top-nav">
+                            <h5><a href="ex-deals.html" class="text-light-green fw-700">Explore</a></h5>
+                            <h5><a href="login.html" class="text-light-green fw-700">Sign in</a></h5>
+                        </div>
+                        <div class="login-box">
+                            <div class="col-12">
+                                <h1 class="text-light-black fw-700">KloudKitchen food delivery every time</h1>
+                                <div class="input-group row">
+                                    <div class="input-group2 col-xl-8">
+                                        <input type="number" class="form-control form-control-submit" placeholder="Too Busy To Order? We'll Give You A Call" value="">
+                                        <div class="input-group-prepend">
+                                            <button class="input-group-text text-light-green"><i class="fab fa-telegram-plane"></i>
+                      </button>
+                                        </div>
+                                    </div>
+                                    <div class="input-group-append col-xl-4">
+                                        <button class="btn-second btn-submit full-width" type="button">Find food</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    {% for i in cat %}
+        <section class="ex-collection section-padding">
+            <div class="container border pt-2">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-header-left d-flex justify-content-between" >
+                            <h3 class="text-light-black header-title title border-bottom">{{i.name}}</h3>
+                            <h5><a href="{% url 'bigMenu' breakfast %}" class="text-red border-bottom">...View all </a></h5>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-3 col-md-4">
+                        <div class="large-product-box mb-xl-20 p-relative">
+                            <img src="{% static 'img/restaurants/255x587/Banner-10.jpg' %}" class="img-fluid full-width" alt="image">
+                            <div class="category-type overlay padding-15">
+                                <button class="category-btn">Most popular near you</button> <a href="restaurant.html" class="btn-first white-btn text-light-black fw-600 full-width">See all</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-8">
+                        <div class="row">
+
+
+                        <!-- Loop -->
+                        {% for j in   %}
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product-box mb-xl-20">
+                                    <div class="product-img">
+                                        <a href="restaurant.html">
+                                            <img src="{% static 'img/restaurants/255x150/shop-23.jpg' %}" class="img-fluid full-width" alt="product-img">
+                                        </a>
+                                        <div class="overlay">
+                                            <div class="product-tags padding-10"> <span class="circle-tag">
+                                            <img src="{% static 'img/svg/013-heart-1.svg' %}" alt="tag">
+                                        </span>
+                                                                <div class="custom-tag"> <span class="text-custom-white rectangle-tag bg-gradient-red">
+                                                                    10%
+                                                                    </span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="product-caption">
+                                                                                <div class="title-box">
+                                                                                    <h6 class="product-title"><a href="restaurant.html" class="text-light-black "> {{i.name}}</a></h6>
+                                                                                    <div class="tags"> 
+                                                                                        {% if i.rating < 1 %}
+                                                                                        <span class="text-custom-white rectangle-tag bg-danger">{{i.rating}}</span>
+                                                                                        {% elif i.rating > 1 and i.rating <= 2 %}
+                                                                                        <span class="text-custom-white rectangle-tag bg-secondary">{{i.rating}}</span>
+                                                                                        {% elif i.rating > 2 and i.rating <= 3 %}
+                                                                                        <span class="text-custom-white rectangle-tag bg-yellow">{{i.rating}}</span>
+                                                                                        {% elif i.rating > 3 and i.rating <= 4 %}
+                                                                                        <span class="text-custom-white rectangle-tag bg-blue">{{i.rating}}</span>
+                                                                                        {% elif i.rating > 4 and i.rating <= 5 %}
+                                                                                        <span class="text-custom-white rectangle-tag bg-success">{{i.rating}}</span>
+                                                                                        {% endif %}
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p class="text-light-white">{{i.category.name}}</p>
+                                                                                <div class="product-details">
+                                                                                    <div class="price-time"> <span class="text-light-black time" style="font-size: 20px;"><strong>₹ {{i.price}}/-</strong></span>
+                                                                                        <span class="text-light-white price"> About{{i.pTime}}</span>
+                                                                                    </div>
+                                                                                    <div class="rating"> 
+                                                                                    <span>
+                                                                                        
+                                                                                    
+                                                                                        {% if i.rating < 1 %}
+                                                                                                <i class="fas fa-star text-yellow"></i>
+                                                                                        {% elif i.rating > 1 and i.rating <= 2 %}
+                                                                                        
+                                                                                                <i class="fas fa-star text-yellow"></i>
+                                                                                                <i class="fas fa-star text-yellow"></i>
+                                                                                        
+                                                                                        {% elif i.rating > 2 and i.rating <= 3 %}
+                                                                                        
+                                                                                                <i class="fas fa-star text-yellow"></i>
+                                                                                                <i class="fas fa-star text-yellow"></i>
+                                                                                                <i class="fas fa-star text-yellow"></i>
+
+                                                                                        {% elif i.rating > 3 and i.rating <= 4 %}
+                                                                                                <i class="fas fa-star text-yellow"></i>
+                                                                                                <i class="fas fa-star text-yellow"></i>
+                                                                                                <i class="fas fa-star text-yellow"></i>
+                                                                                                <i class="fas fa-star text-yellow"></i>
+                                                                                        {% elif i.rating > 4 and i.rating <= 5 %}
+                                                                                                <i class="fas fa-star text-yellow"></i>
+                                                                                                <i class="fas fa-star text-yellow"></i>
+                                                                                                <i class="fas fa-star text-yellow"></i>
+                                                                                                <i class="fas fa-star text-yellow"></i>
+                                                                                        {% endif %}
+                                                                                    </span>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-footer"> 
+                                                            <a href="" class='btn btn-danger '><i class="fas fa-shopping-cart"></i> Add To Cart?</a>
+                                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {% if forloop.counter < 3 %}
+        <!--Factoid Of The Day-->
+        <section class="section-padding how-it-works bg-dark">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="container">
+                            <div class="section-header-style-2">
+                                <h6 class="text-light-green sub-title">Did You Know!</h6>
+                                <h3 class="text-light header-title">Hawaiian pizza didn't come from Hawaii.</h3>
+                            </div>
+                
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="container">
+                            <div class="section-header-style-2">
+                                <h6 class="text-light-green sub-title">Did You Know!</h6>
+                                <h3 class="text-light header-title">Third Factoid</h3>
+                            </div>
+                
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="container">
+                            <div class="section-header-style-2">
+                                <h6 class="text-light-green sub-title">Did You Know!</h6>
+                                <h3 class="text-light header-title">Second Factoid.</h3>
+                            </div>
+                
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            
+        </section>
+        {% endif %}
+    {% endfor %}
+
+    
+{% endblock content %}

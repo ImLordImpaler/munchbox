@@ -8,7 +8,7 @@
                     <div class="main-banner">
                         <img src="{% static 'img/banner/banner-2.jpg' %}" class="img-fluid full-width main-img" alt="banner">
                         <div class="overlay-2 main-padding">
-                            <img src="{% static 'img/heading-1.png' %}" class="img-fluid" alt="logo">
+                            
                         </div>
                         <img src="{% static 'img/banner/burger.png' %}" class="footer-img" alt="footer-img">
                     </div>
@@ -42,15 +42,17 @@
         </div>
     </div>
 
-    <!--SlideShow-->
+    
 
     <section class="ex-collection section-padding">
-        <div class="container">
+        <div class="container border pt-2">
             <div class="row">
                 <div class="col-12">
-                    <div class="section-header-left">
-                        <h3 class="text-light-black header-title title">Category -1</h3>
+                    <div class="section-header-left d-flex justify-content-between" >
+                        <h3 class="text-light-black header-title title border-bottom">{{category1.name}}</h3>
+                        <h5><a href="{% url 'breakfast' %}" class="text-red border-bottom">...View all </a></h5>
                     </div>
+                    
                 </div>
             </div>
             
@@ -68,6 +70,7 @@
 
 
                     <!-- Loop -->
+                    {% for i in breakfast  %}
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product-box mb-xl-20">
                                 <div class="product-img">
@@ -87,25 +90,56 @@
                                                                         </div>
                                                                         <div class="product-caption">
                                                                             <div class="title-box">
-                                                                                <h6 class="product-title"><a href="restaurant.html" class="text-light-black "> Great Burger</a></h6>
-                                                                                <div class="tags"> <span class="text-custom-white rectangle-tag bg-yellow">
-                                                                3.1
-                                                            </span>
+                                                                                <h6 class="product-title"><a href="restaurant.html" class="text-light-black "> {{i.name}}</a></h6>
+                                                                                <div class="tags"> 
+                                                                                    {% if i.rating < 1 %}
+                                                                                     <span class="text-custom-white rectangle-tag bg-danger">{{i.rating}}</span>
+                                                                                    {% elif i.rating > 1 and i.rating <= 2 %}
+                                                                                     <span class="text-custom-white rectangle-tag bg-secondary">{{i.rating}}</span>
+                                                                                    {% elif i.rating > 2 and i.rating <= 3 %}
+                                                                                     <span class="text-custom-white rectangle-tag bg-yellow">{{i.rating}}</span>
+                                                                                     {% elif i.rating > 3 and i.rating <= 4 %}
+                                                                                     <span class="text-custom-white rectangle-tag bg-blue">{{i.rating}}</span>
+                                                                                     {% elif i.rating > 4 and i.rating <= 5 %}
+                                                                                     <span class="text-custom-white rectangle-tag bg-success">{{i.rating}}</span>
+                                                                                    {% endif %}
                                                                                 </div>
                                                                             </div>
-                                                                            <p class="text-light-white">American, Fast Food</p>
+                                                                            <p class="text-light-white">{{i.category.name}}</p>
                                                                             <div class="product-details">
-                                                                                <div class="price-time"> <span class="text-light-black time">30-40 min</span>
-                                                                                    <span class="text-light-white price">$10 min</span>
+                                                                                <div class="price-time"> <span class="text-light-black time" style="font-size: 20px;"><strong>₹ {{i.price}}/-</strong></span>
+                                                                                    <span class="text-light-white price"> About{{i.pTime}}</span>
                                                                                 </div>
-                                                                                <div class="rating"> <span>
-                                                                <i class="fas fa-star text-yellow"></i>
-                                                                <i class="fas fa-star text-yellow"></i>
-                                                                <i class="fas fa-star text-yellow"></i>
-                                                                <i class="fas fa-star text-yellow"></i>
-                                                                <i class="fas fa-star text-yellow"></i>
-                                                            </span>
-                                                            <span class="text-light-white text-right">4225 ratings</span>
+                                                                                <div class="rating"> 
+                                                                                <span>
+                                                                                    
+                                                                                   
+                                                                                    {% if i.rating < 1 %}
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                    {% elif i.rating > 1 and i.rating <= 2 %}
+                                                                                    
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                    
+                                                                                    {% elif i.rating > 2 and i.rating <= 3 %}
+                                                                                    
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+
+                                                                                    {% elif i.rating > 3 and i.rating <= 4 %}
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                    {% elif i.rating > 4 and i.rating <= 5 %}
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                    {% endif %}
+                                                                                </span>
+                                                            
                                                         </div>
                                                     </div>
                                                     <div class="product-footer"> 
@@ -114,7 +148,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+                    {% endfor %}
                        
                     </div>
                 </div>
@@ -125,21 +159,55 @@
 
     <!--Factoid Of The Day-->
     <section class="section-padding how-it-works bg-dark">
-        <div class="container">
-            <div class="section-header-style-2">
-                <h6 class="text-light-green sub-title">Did You Know!</h6>
-                <h3 class="text-light header-title">Hawaiian pizza didn't come from Hawaii.</h3>
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container">
+                        <div class="section-header-style-2">
+                            <h6 class="text-light-green sub-title">Did You Know!</h6>
+                            <h3 class="text-light header-title">Hawaiian pizza didn't come from Hawaii.</h3>
+                        </div>
+            
+                    </div>
+                </div>
+                <div class="carousel-item">
+                     <div class="container">
+                        <div class="section-header-style-2">
+                            <h6 class="text-light-green sub-title">Did You Know!</h6>
+                            <h3 class="text-light header-title">Third Factoid</h3>
+                        </div>
+            
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container">
+                        <div class="section-header-style-2">
+                            <h6 class="text-light-green sub-title">Did You Know!</h6>
+                            <h3 class="text-light header-title">Second Factoid.</h3>
+                        </div>
+            
+                    </div>
+                </div>
             </div>
-           
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
+        
     </section>
 
     <section class="ex-collection section-padding">
-        <div class="container">
+        <div class="container border">
             <div class="row">
                 <div class="col-12">
-                    <div class="section-header-left">
-                        <h3 class="text-light-black header-title title">Category -1</h3>
+                    <div class="section-header-left d-flex justify-content-between" >
+                        <h3 class="text-light-black header-title title border-bottom">{{category2.name}}</h3>
+                        <h5><a href="" class="text-red border-bottom">...View all</a></h5>
                     </div>
                 </div>
             </div>
@@ -158,6 +226,7 @@
 
 
                     <!-- Loop -->
+                         {% for i in lunch  %}
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product-box mb-xl-20">
                                 <div class="product-img">
@@ -177,25 +246,56 @@
                                                                         </div>
                                                                         <div class="product-caption">
                                                                             <div class="title-box">
-                                                                                <h6 class="product-title"><a href="restaurant.html" class="text-light-black "> Great Burger</a></h6>
-                                                                                <div class="tags"> <span class="text-custom-white rectangle-tag bg-yellow">
-                                                                3.1
-                                                            </span>
+                                                                                <h6 class="product-title"><a href="restaurant.html" class="text-light-black "> {{i.name}}</a></h6>
+                                                                                <div class="tags"> 
+                                                                                    {% if i.rating < 1 %}
+                                                                                     <span class="text-custom-white rectangle-tag bg-danger">{{i.rating}}</span>
+                                                                                    {% elif i.rating > 1 and i.rating <= 2 %}
+                                                                                     <span class="text-custom-white rectangle-tag bg-secondary">{{i.rating}}</span>
+                                                                                    {% elif i.rating > 2 and i.rating <= 3 %}
+                                                                                     <span class="text-custom-white rectangle-tag bg-yellow">{{i.rating}}</span>
+                                                                                     {% elif i.rating > 3 and i.rating <= 4 %}
+                                                                                     <span class="text-custom-white rectangle-tag bg-blue">{{i.rating}}</span>
+                                                                                     {% elif i.rating > 4 and i.rating <= 5 %}
+                                                                                     <span class="text-custom-white rectangle-tag bg-success">{{i.rating}}</span>
+                                                                                    {% endif %}
                                                                                 </div>
                                                                             </div>
-                                                                            <p class="text-light-white">American, Fast Food</p>
+                                                                            <p class="text-light-white">{{i.category.name}}</p>
                                                                             <div class="product-details">
-                                                                                <div class="price-time"> <span class="text-light-black time">30-40 min</span>
-                                                                                    <span class="text-light-white price">$10 min</span>
+                                                                                <div class="price-time"> <span class="text-light-black time" style="font-size: 20px;"><strong>₹ {{i.price}}/-</strong></span>
+                                                                                    <span class="text-light-white price"> About{{i.pTime}}</span>
                                                                                 </div>
-                                                                                <div class="rating"> <span>
-                                                                <i class="fas fa-star text-yellow"></i>
-                                                                <i class="fas fa-star text-yellow"></i>
-                                                                <i class="fas fa-star text-yellow"></i>
-                                                                <i class="fas fa-star text-yellow"></i>
-                                                                <i class="fas fa-star text-yellow"></i>
-                                                            </span>
-                                                            <span class="text-light-white text-right">4225 ratings</span>
+                                                                                <div class="rating"> 
+                                                                                <span>
+                                                                                    
+                                                                                   
+                                                                                    {% if i.rating < 1 %}
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                    {% elif i.rating > 1 and i.rating <= 2 %}
+                                                                                    
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                    
+                                                                                    {% elif i.rating > 2 and i.rating <= 3 %}
+                                                                                    
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+
+                                                                                    {% elif i.rating > 3 and i.rating <= 4 %}
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                    {% elif i.rating > 4 and i.rating <= 5 %}
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                    {% endif %}
+                                                                                </span>
+                                                            
                                                         </div>
                                                     </div>
                                                     <div class="product-footer"> 
@@ -204,6 +304,161 @@
                                 </div>
                             </div>
                         </div>
+                    {% endfor %}
+                        
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-padding how-it-works bg-dark">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container">
+                        <div class="section-header-style-2">
+                            <h6 class="text-light-green sub-title">Did You Know!</h6>
+                            <h3 class="text-light header-title">Hawaiian pizza didn't come from Hawaii.</h3>
+                        </div>
+            
+                    </div>
+                </div>
+                <div class="carousel-item">
+                     <div class="container">
+                        <div class="section-header-style-2">
+                            <h6 class="text-light-green sub-title">Did You Know!</h6>
+                            <h3 class="text-light header-title">Third Factoid</h3>
+                        </div>
+            
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container">
+                        <div class="section-header-style-2">
+                            <h6 class="text-light-green sub-title">Did You Know!</h6>
+                            <h3 class="text-light header-title">Second Factoid.</h3>
+                        </div>
+            
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        
+    </section>
+
+    <section class="ex-collection section-padding">
+        <div class="container border" >
+            <div class="row mt-3">
+                <div class="col-12">
+                    <div class="section-header-left d-flex justify-content-between" >
+                        <h3 class="text-light-black header-title title border-bottom">{{category3.name}}</h3>
+                        <h5><a href="" class="text-red border-bottom">...View all</a></h5>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
+                    <div class="large-product-box mb-xl-20 p-relative">
+                        <img src="{% static 'img/restaurants/255x587/Banner-10.jpg' %}" class="img-fluid full-width" alt="image">
+                        <div class="category-type overlay padding-15">
+                            <button class="category-btn">Most popular near you</button> <a href="restaurant.html" class="btn-first white-btn text-light-black fw-600 full-width">See all</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-8">
+                    <div class="row">
+
+
+                    <!-- Loop -->
+                         {% for i in dinner  %}
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product-box mb-xl-20">
+                                <div class="product-img">
+                                    <a href="restaurant.html">
+                                        <img src="{% static 'img/restaurants/255x150/shop-23.jpg' %}" class="img-fluid full-width" alt="product-img">
+                                    </a>
+                                    <div class="overlay">
+                                        <div class="product-tags padding-10"> <span class="circle-tag">
+                                        <img src="{% static 'img/svg/013-heart-1.svg' %}" alt="tag">
+                                    </span>
+                                                            <div class="custom-tag"> <span class="text-custom-white rectangle-tag bg-gradient-red">
+                                                                10%
+                                                                </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="product-caption">
+                                                                            <div class="title-box">
+                                                                                <h6 class="product-title"><a href="restaurant.html" class="text-light-black "> {{i.name}}</a></h6>
+                                                                                <div class="tags"> 
+                                                                                    {% if i.rating < 1 %}
+                                                                                     <span class="text-custom-white rectangle-tag bg-danger">{{i.rating}}</span>
+                                                                                    {% elif i.rating > 1 and i.rating <= 2 %}
+                                                                                     <span class="text-custom-white rectangle-tag bg-secondary">{{i.rating}}</span>
+                                                                                    {% elif i.rating > 2 and i.rating <= 3 %}
+                                                                                     <span class="text-custom-white rectangle-tag bg-yellow">{{i.rating}}</span>
+                                                                                     {% elif i.rating > 3 and i.rating <= 4 %}
+                                                                                     <span class="text-custom-white rectangle-tag bg-blue">{{i.rating}}</span>
+                                                                                     {% elif i.rating > 4 and i.rating <= 5 %}
+                                                                                     <span class="text-custom-white rectangle-tag bg-success">{{i.rating}}</span>
+                                                                                    {% endif %}
+                                                                                </div>
+                                                                            </div>
+                                                                            <p class="text-light-white">{{i.category.name}}</p>
+                                                                            <div class="product-details">
+                                                                                <div class="price-time"> <span class="text-light-black time" style="font-size: 20px;"><strong>₹ {{i.price}}/-</strong></span>
+                                                                                    <span class="text-light-white price"> About{{i.pTime}}</span>
+                                                                                </div>
+                                                                                <div class="rating"> 
+                                                                                <span>
+                                                                                    
+                                                                                   
+                                                                                    {% if i.rating < 1 %}
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                    {% elif i.rating > 1 and i.rating <= 2 %}
+                                                                                    
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                    
+                                                                                    {% elif i.rating > 2 and i.rating <= 3 %}
+                                                                                    
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+
+                                                                                    {% elif i.rating > 3 and i.rating <= 4 %}
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                    {% elif i.rating > 4 and i.rating <= 5 %}
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                    {% endif %}
+                                                                                </span>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-footer"> 
+                                                        <a href="" class='btn btn-danger '><i class="fas fa-shopping-cart"></i> Add To Cart?</a>
+                                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
                         
                        
                     </div>
