@@ -1,0 +1,35 @@
+{% extends 'basic/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="inner-wrapper">
+    <div class="container-fluid no-padding">
+      <div class="row no-gutters overflow-auto">
+        
+        <div class="col-md-6">
+          <div class="section-2 user-page main-padding">
+            <div class="login-sec">
+              <div class="login-box">
+                <form method='POST' action=""> {% csrf_token %}
+                 {{form.as_p}}
+                 <button class='btn btn-primary ' type='submit'>Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="main-banner">
+            <img src="{% static 'img/banner/banner-1.jpg' %}" class="img-fluid full-width main-img" alt="banner">
+            <div class="overlay-2 main-padding " style="">
+                <h1 class='text-danger bg-white d-inline px-2'>Hot&Cold</h1>
+            </div>
+            <img src="{% static 'img/burger.png' %}" class="footer-img" alt="footer-img">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Place all Scripts Here -->
+  <!-- jQuery -->
+ {% endblock content %}
+

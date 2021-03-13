@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+
 <html lang="en">
 
 
@@ -44,8 +45,15 @@
 </head>
 
 <body>
+
+
     {% include 'basic/header.html' %}
-    {% block content %}{% endblock content %}
+    
+        {% block content %}
+        
+        {% endblock content %}
+
+
     <footer class="section-padding bg-light-theme pt-0 u-line bg-black">
        
         <div class="container-fluid">

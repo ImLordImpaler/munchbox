@@ -2,10 +2,11 @@
 {% load static %}
 
 {% block content %}
-    <div class="most-popular section-padding">
+<hr>
+    <div class="most-popular ">
         <div class="container-fluid">
             <div class="row">
-                <aside class="col-lg-3 mb-md-40">
+                <aside class="col-lg-3 mb-md-40 border">
                     <div class="filter-sidebar mb-5">
                         <h4 class="text-light-black fw-600 title-2">Filters<small class="fs-12"><a href="#" class="text-light-black fw-500">Clear all</a></small></h4>
                         <div class="sidebar-tab">
@@ -431,47 +432,70 @@
                         
                          <div class="col-12">
                             <div class="section-header-left">
-                                <h3 class="text-light-black header-title title">Offers near you</h3>
+                                <h3 class="text-light-black header-title title">Top Dishes</h3>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="near-offer-slider swiper-container  mb-xl-20">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="product-box">
-                                            <div class="product-img">
-                                                <a href="restaurant.html">
-                                                    <img src="assets/img/restaurants/255x150/shop-1.jpg" class="img-fluid full-width" alt="product-img">
-                                                </a>
-                                            </div>
-                                            <div class="product-caption">
-                                                <div class="title-box">
-                                                    <h6 class="product-title"><a href="restaurant.html" class="text-light-black"> Great Burger</a></h6>
+                                   {% for i in popularItems  %}
+                                        <div class="swiper-slide">
+                                            <div class="product-box">
+                                                <div class="product-img">
+                                                    <a href="restaurant.html">
+                                                        <img src="https://i0.wp.com/www.eatthis.com/wp-content/uploads//media/images/ext/277582276/kfc-chicken-drumstick-2-piece.jpg?fit=900%2C660&ssl=1" class="img-fluid full-width" alt="product-img">
+                                                    </a>
                                                 </div>
-                                                <p class="text-light-white">American, Fast Food</p>
-                                                <div class="product-details">
-                                                    <div class="price-time"> <span class="text-light-black time">30-40 min</span>
-                                                        <span class="text-light-white price">$10 min</span>
+                                                <div class="product-caption">
+                                                    <div class="title-box">
+                                                        <h3 class="product-title" style="font-size:25px;"> {{i.name}}</h3>
                                                     </div>
-                                                    <div class="rating"> <span>
-                                                <i class="fas fa-star text-yellow"></i>
-                                                <i class="fas fa-star text-yellow"></i>
-                                                <i class="fas fa-star text-yellow"></i>
-                                                <i class="fas fa-star text-yellow"></i>
-                                                <i class="fas fa-star text-yellow"></i>
-                                                </span>
-                                                        <span class="text-light-white text-right">4225 ratings</span>
+                                                    <p class="text-light-white">{{i.category.name}}</p>
+                                                    <div class="product-details">
+                                                        <div class="price-time"> <span class="text-light-black time" style="font-size:20px;"><strong>$10 min</strong></span>
+                                                            <span class="text-light-white price">About{{i.pTime}} min</span>
+                                                        </div>
+                                                        <div class="rating"> 
+                                                                                <span>
+                                                                                    {% if i.rating < 1 %}
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                    {% elif i.rating > 1 and i.rating <= 2 %}
+                                                                                    
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                    
+                                                                                    {% elif i.rating > 2 and i.rating <= 3 %}
+                                                                                    
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+
+                                                                                    {% elif i.rating > 3 and i.rating <= 4 %}
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                    {% elif i.rating > 4 and i.rating <= 5 %}
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                    {% endif %}
+                                                                             </span>
+                                                            <span class="text-light-white text-right">4225 ratings</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-footer-2">
+                                                    <div class="discount"> <span class="text-success fs-12">$3 off</span>
+                                                    </div>
+                                                    <div class="discount-coupon"> <span class="text-light-white fs-12">First order only</span>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="product-footer-2">
-                                                <div class="discount"> <span class="text-success fs-12">$3 off</span>
-                                                </div>
-                                                <div class="discount-coupon"> <span class="text-light-white fs-12">First order only</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        </div>   
+
+                                   {% endfor %}
                                     
                                 <!-- Add Arrows -->
                                 <div class="swiper-button-next"></div>
@@ -480,7 +504,7 @@
                         </div>
                         <div class="col-12">
                            
-                            
+                        {% for i in item %}
                             <div class="product-list-view">
                                 <div class="product-list-info">
                                     <div class="product-list-img">
@@ -493,8 +517,8 @@
                                     <div class="product-list-details">
                                         <div class="product-list-title">
                                             <div class="product-info">
-                                                <h6><a href="restaurant.html" class="text-light-black fw-600">Lil Johnny’s</a></h6>
-                                                <p class="text-light-white fs-12">American Bagels</p>
+                                                <h6><a href="restaurant.html" class="text-light-black fw-600">{{i.name}}</a></h6>
+                                                <p class="text-light-white fs-12">{{i.category.name}}</p>
                                             </div>
                                         </div>
                                         <div class="product-detail-right-box">
@@ -516,12 +540,7 @@
                                                 Trending
                                                 </span>
                                             </div>
-                                            <div class="product-price-icon"> <span class="text-success fs-16">$</span>
-                                                <span class="text-success fs-16">$</span>
-                                                <span class="text-success fs-16">$</span>
-                                                <span class="text-success fs-16">$</span>
-                                                <span class="text-success fs-16">$</span>
-                                            </div>
+                                           
                                             <div class="product-list-label"> <span class="rectangle-tag bg-gradient-red text-custom-white">Label</span>
                                                 <span class="rectangle-tag bg-dark text-custom-white">Combo</span>
                                             </div>
@@ -536,19 +555,19 @@
                                     <div class="product-list-bottom">
                                         <div class="product-list-type"> <span class="text-light-white new">New</span>
                                             <span class="text-custom-white square-tag">
-                                                <img src="assets/img/svg/004-leaf.svg" alt="tag">
+                                                <img src="{% static 'img/svg/004-leaf.svg'%}" alt="tag">
                                             </span>
                                                                     <span class="text-custom-white square-tag">
-                                                <img src="assets/img/svg/006-chili.svg" alt="tag">
+                                                <img src="{% static 'img/svg/006-chili.svg'%}" alt="tag">
                                             </span>
                                                                     <span class="text-custom-white square-tag">
-                                                <img src="assets/img/svg/005-chef.svg" alt="tag">
+                                                <img src="{% static 'img/svg/005-chef.svg'%}" alt="tag">
                                             </span>
                                                                     <span class="text-custom-white square-tag">
-                                                <img src="assets/img/svg/008-protein.svg" alt="tag">
+                                                <img src="{% static 'img/svg/008-protein.svg'%}" alt="tag">
                                             </span>
                                                                     <span class="text-custom-white square-tag">
-                                                <img src="assets/img/svg/009-lemon.svg" alt="tag">
+                                                <img src="{% static 'img/svg/009-lemon.svg'%}" alt="tag">
                                             </span>
                                                                 </div>
                                                                 <div class="mob-tags-label"> <span class="text-custom-white rectangle-tag bg-gradient-red">
@@ -564,106 +583,16 @@
                                                 <img src="assets/img/svg/013-heart-1.svg" alt="tag">
                                             </span>
                                             <ul>
-                                                <li class="text-light-white">1.18 mi</li>
-                                                <li class="text-light-white">30-40 mins</li>
+                                                <a href="" class='btn btn-danger'>Add To Cart?</a>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
+                        {% endfor %}
                        
                         <div class="col-12">
-                            <div class="product-list-view">
-                                <div class="product-list-info">
-                                    <div class="product-list-img">
-                                        <a href="restaurant.html">
-                                            <img src="assets/img/restaurants/90x90/shop-6.jpg" class="img-fluid" alt="#">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="product-right-col">
-                                    <div class="product-list-details">
-                                        <div class="product-list-title">
-                                            <div class="product-info">
-                                                <h6><a href="restaurant.html" class="text-light-black fw-600">Sigma Bagels</a></h6>
-                                                <p class="text-light-white fs-12">American Bagels</p>
-                                            </div>
-                                        </div>
-                                        <div class="product-detail-right-box">
-                                            <div class="product-list-rating text-center">
-                                                <div class="ratings"> <span class="text-yellow"><i class="fas fa-star"></i></span>
-                                                    <span class="text-yellow"><i class="fas fa-star"></i></span>
-                                                    <span class="text-yellow"><i class="fas fa-star"></i></span>
-                                                    <span class="text-yellow"><i class="fas fa-star"></i></span>
-                                                    <span class="text-yellow"><i class="fas fa-star-half-alt"></i></span>
-                                                </div>
-                                                <div class="rating-text">
-                                                    <p class="text-light-white fs-12">3845 ratings</p>
-                                                </div>
-                                            </div>
-                                            <div class="product-list-tags"> <span class="text-custom-white rectangle-tag bg-gradient-red">
-                          10%
-                        </span>
-                                                <span class="rectangle-tag bg-gradient-green text-custom-white">
-                          Trending
-                        </span>
-                                            </div>
-                                            <div class="product-price-icon"> <span class="text-success fs-16">$</span>
-                                                <span class="text-success fs-16">$</span>
-                                                <span class="text-success fs-16">$</span>
-                                                <span class="text-success fs-16">$</span>
-                                                <span class="text-success fs-16">$</span>
-                                            </div>
-                                            <div class="product-list-label"> <span class="rectangle-tag bg-gradient-red text-custom-white">Label</span>
-                                                <span class="rectangle-tag bg-dark text-custom-white">Combo</span>
-                                            </div>
-                                            <div class="product-list-price">
-                                                <div class="price">
-                                                    <h6 class="text-light-black no-margin">$0</h6>
-                                                    <span class="text-light-white">Minimum</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-list-bottom">
-                                        <div class="product-list-type"> <span class="text-light-white new">New</span>
-                                            <span class="text-custom-white square-tag">
-                        <img src="assets/img/svg/004-leaf.svg" alt="tag">
-                      </span>
-                                            <span class="text-custom-white square-tag">
-                        <img src="assets/img/svg/006-chili.svg" alt="tag">
-                      </span>
-                                            <span class="text-custom-white square-tag">
-                        <img src="assets/img/svg/005-chef.svg" alt="tag">
-                      </span>
-                                            <span class="text-custom-white square-tag">
-                        <img src="assets/img/svg/008-protein.svg" alt="tag">
-                      </span>
-                                            <span class="text-custom-white square-tag">
-                        <img src="assets/img/svg/009-lemon.svg" alt="tag">
-                      </span>
-                                        </div>
-                                        <div class="mob-tags-label"> <span class="text-custom-white rectangle-tag bg-gradient-red">
-                          10%
-                        </span>
-                                            <span class="rectangle-tag bg-gradient-green text-custom-white">
-                        Trending
-                      </span>
-                                            <span class="rectangle-tag bg-gradient-red text-custom-white">Label</span>
-                                            <span class="rectangle-tag bg-dark text-custom-white">Combo</span>
-                                        </div>
-                                        <div class="product-list-time"> <span class="circle-tag">
-                        <img src="assets/img/svg/013-heart-1.svg" alt="tag">
-                      </span>
-                                            <ul>
-                                                <li class="text-light-white">1.18 mi</li>
-                                                <li class="text-light-white">30-40 mins</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                             <div class="custom-pagination">
                                 <nav aria-label="Page navigation example">
                                     <ul class="pagination">
@@ -691,6 +620,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 {% endblock content %}
 

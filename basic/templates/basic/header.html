@@ -1,17 +1,17 @@
 {% load static %}
-<div class="header">
-        <header class="full-width">
+<div class="header" >
+        <header class="full-width " >
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 mainNavCol">
                         <!-- logo -->
-                        <div class="logo mainNavCol">
-                            <a href="index-2.html">
-                                <h4 class='mt-3'><strong>KloudKitchen</strong></h4>
+                        <div class="logo mainNavCol inline">
+                            <a href="{% url 'homepage' %}">
+                                <h4 class='mt-3'><strong>Hot&Cold</strong></h4>
                             </a>
                         </div>
                         <!-- logo -->
-                        <div class="main-search mainNavCol ml-3">
+                        <div class="main-search mainNavCol ">
                             <form class="main-search search-form full-width">
                                 <div class="row">
                                     <!-- location picker -->
@@ -32,7 +32,7 @@
                         </div>
                         <div class="right-side fw-700 mainNavCol">
                             <div class="gem-points">
-                                <a href="#"> <i class="fas fa-concierge-bell"></i>
+                                <a href="{% url 'menu' %}"> <i class="fas fa-concierge-bell"></i>
                                     <span>Order Now</span>
                                 </a>
                             </div>
@@ -144,9 +144,10 @@
                             </div>
                             <!-- mobile search -->
                             <!-- user account -->
+                            {% if user.is_authenticated %}
                             <div class="user-details p-relative">
                                 <a href="#" class="text-light-white fw-500">
-                                    <img src="assets/img/user-1.png" class="rounded-circle" alt="userimg"> <span>Hi, Kate</span>
+                                    <img src="assets/img/user-1.png" class="rounded-circle" > <span>Hi, {{user.username}}</span>
                                 </a>
                                 <div class="user-dropdown">
                                     <ul>
@@ -199,15 +200,22 @@
                                             </a>
                                         </li>
                                     </ul>
-                                    <div class="user-footer"> <span class="text-light-black">Not Jhon?</span> <a href="#">Sign Out</a>
+                                    <div class="user-footer"> <span class="text-light-black">Not Jhon?</span> <a href="{% url 'logoutPage' %}">Sign Out</a>
                                     </div>
                                 </div>
                             </div>
+                            {% else %}
+                            <div class="user-details p-relative">
+                               <a href="{% url 'loginPage' %}" class="text-red fw-500">
+                                   <strong> Login</strong>
+                                </a>
+                            </div>
+                            {% endif %}
                             <!-- mobile search -->
                             <!-- user notification -->
                             <div class="cart-btn notification-btn">
-                                <a href="#" class="text-light-green fw-700"> <i class="fas fa-bell"></i>
-                                    <span class="user-alert-notification"></span>
+                                <a href="{% url 'profile' %}" class="text-light-green fw-700"> <i class="fas fa-user"></i>
+                                    
                                 </a>
                                 <div class="notification-dropdown">
                                     <div class="product-detail">
@@ -234,8 +242,8 @@
                             <!-- user notification -->
                             <!-- user cart -->
                             <div class="cart-btn cart-dropdown">
-                                <a href="#" class="text-light-green fw-700"> <i class="fas fa-shopping-bag"></i>
-                                    <span class="user-alert-cart">3</span>
+                                <a href="{% url 'recipt' %}" class="text-light-green fw-700"> <i class="fas fa-shopping-bag"></i>
+                                    <span class="user-alert-cart">1</span>
                                 </a>
                                 <div class="cart-detail-box">
                                     <div class="card">
@@ -253,45 +261,12 @@
                                                         </a>
                                                     </div>
                                                     <div class="price"> <a href="#" class="text-dark-white fw-500">
-                              $2.25
-                            </a>
+                                                        $2.25
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="cat-product-box">
-                                                <div class="cat-product">
-                                                    <div class="cat-name">
-                                                        <a href="#">
-                                                            <p class="text-light-green"><span class="text-dark-white">1</span> loaded cheese</p> <span class="text-light-white">small, chilli chicken</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="delete-btn">
-                                                        <a href="#" class="text-dark-white"> <i class="far fa-trash-alt"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="price"> <a href="#" class="text-dark-white fw-500">
-                              $2.25
-                            </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cat-product-box">
-                                                <div class="cat-product">
-                                                    <div class="cat-name">
-                                                        <a href="#">
-                                                            <p class="text-light-green"><span class="text-dark-white">1</span> Tortia Chicken</p> <span class="text-light-white">small, chilli chicken</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="delete-btn">
-                                                        <a href="#" class="text-dark-white"> <i class="far fa-trash-alt"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="price"> <a href="#" class="text-dark-white fw-500">
-                              $2.25
-                            </a>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            
                                             <div class="item-total">
                                                 <div class="total-price border-0"> <span class="text-dark-white fw-700">Items subtotal:</span>
                                                     <span class="text-dark-white fw-700">$9.99</span>

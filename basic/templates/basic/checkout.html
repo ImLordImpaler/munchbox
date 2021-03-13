@@ -1,0 +1,75 @@
+{% extends 'basic/base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <hr>
+    <section class="section-padding our-blog restaurent-ad">
+        <div class="container">
+            <div class="section-header-style-2">
+                <h6 class="text-light-green sub-title">LeloMart.com</h6>
+                <h3 class="text-light-black header-title">CheckOut Page</h3>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="blog-box mb-xl-20 ">
+                        <!-- article 1 -->
+                        <article class="post border-right py-2">
+                            <div class="blog-img p-2">
+                                
+                                <form method='POST' action=""> {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1"><strong>Street Address*</strong></label>
+                                        {% render_field form.street class='form-control' type="text" placeholder="Enter Your Street Address" %}
+                                           
+                                    </div>
+                                    <div class="form-group">
+                                        <div class='row'>
+                                            <div class='col-sm-5 mx-2'>
+                                                <label for="exampleFormControlInput1"><strong>City*</strong></label>
+                                                {% render_field form.city class='form-control' type="text" placeholder="Enter Your City" %}
+                                            </div>
+                                            <div class='col-sm-5 mx-2'>
+                                                <label for="exampleFormControlInput1"><strong>State*</strong></label>
+                                               {% render_field form.state class='form-control' type="text" placeholder="Enter Your State" %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class='row'>
+                                            <div class='col-sm-5 mx-2'>
+                                            
+                                                <label for="exampleFormControlInput1"><strong>Zip Code*</strong></label>
+                                                {% render_field form.zipcode class='form-control' type="text" placeholder="Enter Your City" %}
+                                                
+                                            </div>
+                                            <div class='col-sm-5 mx-2'>
+
+                                                <label for="exampleFormControlInput1"><strong>Landmark</strong></label>
+                                                {% render_field form.landmark class='form-control' type="text" placeholder="Enter Your Nearest Landmark" %}
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1"><strong>Any Special Instructions:</strong></label>
+                                        {% render_field form.specialInstructions class='form-control' type="text" placeholder="example: Dont Ring The Bell" %}
+                                    </div>
+                                    <hr>
+                                    <button  class='btn btn-primary' type='submit'>Submit</button>
+                                    
+                                </form>
+                            </div>
+                        </article>
+                        <!-- article 1 -->
+                        <div class="side-blog" style="">
+                            <img src="https://i.pinimg.com/originals/75/75/d4/7575d4164e7e8a30e3fdb63dd39a2ddf.jpg" style="object-fit:contain;"/>
+                        </div>
+                    </div>
+                    
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
+

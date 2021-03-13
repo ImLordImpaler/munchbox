@@ -1,1 +1,626 @@
 {% extends 'basic/base.html' %}
+{% load static %}
+
+{% block content %}
+<hr>
+    <div class="most-popular ">
+        <div class="container-fluid">
+            <div class="row">
+                <aside class="col-lg-3 mb-md-40 border">
+                    <div class="filter-sidebar mb-5">
+                        <h4 class="text-light-black fw-600 title-2">Filters<small class="fs-12"><a href="#" class="text-light-black fw-500">Clear all</a></small></h4>
+                        <div class="sidebar-tab">
+                            <ul class="nav nav-pills mb-xl-20">
+                                <li class="nav-item"> <a class="nav-link active" data-toggle="pill" href="#restaurents">Restaurants</a>
+                                </li>
+                                <li class="nav-item"> <a class="nav-link" data-toggle="pill" href="#caterings">Caterings</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="restaurents">
+                                    <div class="siderbar-innertab">
+                                        <ul class="nav nav-pills">
+                                            <li class="nav-item"> <a class="nav-link active" data-toggle="pill" href="#delivery-restaurents">Delivery</a>
+                                            </li>
+                                            <li class="nav-item"> <a class="nav-link" data-toggle="pill" href="#pickup-restaurents">Pickup</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-content" id="pills-tabContent">
+                                        <div class="tab-pane fade show active" id="delivery-restaurents">
+                                            <p class="text-light-black delivery-type p-relative">Delivery my food <a href="#">Today, ASAP</a>
+                                            </p>
+                                            <div class="filters">
+                                                <div class="card">
+                                                    <div class="card-header"> <a class="card-link text-light-black fw-700 fs-16" data-toggle="collapse" href="#deliverycollapseOne">
+                                  Feature
+                                </a>
+                                                    </div>
+                                                    <div id="deliverycollapseOne" class="collapse show">
+                                                        <div class="card-body">
+                                                            <form>
+                                                                <label class="custom-checkbox">
+                                  <input type="checkbox" name="#"> <span class="checkmark"></span> New <span class="text-light-white">(3)</span>
+                                </label>
+                                                                <label class="custom-checkbox">
+                                  <input type="checkbox" name="#"> <span class="checkmark"></span> Order Tracking <span class="text-light-white">(6)</span>
+                                </label>
+                                                                <label class="custom-checkbox">
+                                  <input type="checkbox" name="#"> <span class="checkmark"></span> Open Now [6:05am] <span class="text-light-white">(10)</span>
+                                </label>
+                                                                <label class="custom-checkbox">
+                                  <input type="checkbox" name="#"> <span class="checkmark"></span> Free Delivery <span class="text-light-white">(6)</span>
+                                </label>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header"> <a class="card-link text-light-black fw-700 fs-16" data-toggle="collapse" href="#deliverycollapseTwo">
+                                Rating
+                              </a>
+                                                    </div>
+                                                    <div id="deliverycollapseTwo" class="collapse show">
+                                                        <div class="card-body">
+                                                            <div class="rating">
+                                                                <button class="text-yellow"><i class="fas fa-star"></i>
+                                </button>
+                                                                <button class="text-yellow"><i class="fas fa-star"></i>
+                                </button>
+                                                                <button class="text-yellow"><i class="fas fa-star"></i>
+                                </button>
+                                                                <button class="text-yellow"><i class="fas fa-star"></i>
+                                </button>
+                                                                <button class="text-yellow"><i class="fas fa-star"></i>
+                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header"> <a class="card-link text-light-black fw-700 fs-16" data-toggle="collapse" href="#deliverycollapseThree">
+                                  Price
+                                </a>
+                                                    </div>
+                                                    <div id="deliverycollapseThree" class="collapse show">
+                                                        <div class="card-body">
+                                                            <div class="rating">
+                                                                <button class="text-success">$</button>
+                                                                <button class="text-success">$$</button>
+                                                                <button class="text-success">$$$</button>
+                                                                <button class="text-success">$$$$</button>
+                                                                <button class="text-success">$$$$$</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header"> <a class="card-link text-light-black fw-700 fs-16" data-toggle="collapse" href="#deliverycollapseFour">
+                                  Delivery time
+                                </a>
+                                                    </div>
+                                                    <div id="deliverycollapseFour" class="collapse show">
+                                                        <div class="card-body">
+                                                            <div class="delivery-slider">
+                                                                <input type="text" class="delivery-range-slider" value="" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="pickup-restaurents">
+                                            <p class="text-light-black delivery-type p-relative">Pick my food <a href="#">Today, ASAP</a>
+                                            </p>
+                                            <div class="filters">
+                                                <div class="card">
+                                                    <div class="card-header"> <a class="card-link text-light-black fw-700 fs-16" data-toggle="collapse" href="#pickupcollapseOne">
+                                  Feature
+                                </a>
+                                                    </div>
+                                                    <div id="pickupcollapseOne" class="collapse show">
+                                                        <div class="card-body">
+                                                            <form>
+                                                                <label class="custom-checkbox">
+                                  <input type="checkbox" name="#"> <span class="checkmark"></span> Coupons <span class="text-light-white">(1)</span>
+                                </label>
+                                                                <label class="custom-checkbox">
+                                  <input type="checkbox" name="#"> <span class="checkmark"></span> New <span class="text-light-white">(26)</span>
+                                </label>
+                                                                <label class="custom-checkbox">
+                                  <input type="checkbox" name="#"> <span class="checkmark"></span> Open Now [7:08am] <span class="text-light-white">(236)</span>
+                                </label>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header"> <a class="card-link text-light-black fw-700 fs-16" data-toggle="collapse" href="#pickupcollapseTwo">
+                                Rating
+                              </a>
+                                                    </div>
+                                                    <div id="pickupcollapseTwo" class="collapse show">
+                                                        <div class="card-body">
+                                                            <div class="rating">
+                                                                <button class="text-yellow"><i class="fas fa-star"></i>
+                                </button>
+                                                                <button class="text-yellow"><i class="fas fa-star"></i>
+                                </button>
+                                                                <button class="text-yellow"><i class="fas fa-star"></i>
+                                </button>
+                                                                <button class="text-yellow"><i class="fas fa-star"></i>
+                                </button>
+                                                                <button class="text-yellow"><i class="fas fa-star"></i>
+                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header"> <a class="card-link text-light-black fw-700 fs-16" data-toggle="collapse" href="#pickupcollapseThree">
+                                  Price
+                                </a>
+                                                    </div>
+                                                    <div id="pickupcollapseThree" class="collapse show">
+                                                        <div class="card-body">
+                                                            <div class="rating">
+                                                                <button class="text-success">$</button>
+                                                                <button class="text-success">$$</button>
+                                                                <button class="text-success">$$$</button>
+                                                                <button class="text-success">$$$$</button>
+                                                                <button class="text-success">$$$$$</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header"> <a class="card-link text-light-black fw-700 fs-16" data-toggle="collapse" href="#pickupcollapseFour">
+                                  Distance
+                                </a>
+                                                    </div>
+                                                    <div id="pickupcollapseFour" class="collapse show">
+                                                        <div class="card-body">
+                                                            <div class="delivery-slider">
+                                                                <input type="text" class="distance-range-slider" value="" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="caterings">
+                                    <div class="siderbar-innertab">
+                                        <ul class="nav nav-pills">
+                                            <li class="nav-item"> <a class="nav-link active" data-toggle="pill" href="#delivery-caterings">Delivery</a>
+                                            </li>
+                                            <li class="nav-item"> <a class="nav-link disabled" data-toggle="pill" href="#pickup-caterings">Pickup</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade show active" id="delivery-caterings">
+                                            <p class="text-light-black delivery-type p-relative">Delivery my food <a href="#">Today, ASAP</a>
+                                            </p>
+                                            <div class="filters">
+                                                <div class="card">
+                                                    <div class="card-header"> <a class="card-link text-light-black fw-700 fs-16" data-toggle="collapse" href="#delivery-cateringscollapseOne">
+                                  Feature
+                                </a>
+                                                    </div>
+                                                    <div id="delivery-cateringscollapseOne" class="collapse show">
+                                                        <div class="card-body">
+                                                            <form>
+                                                                <label class="custom-checkbox">
+                                  <input type="checkbox" name="#"> <span class="checkmark"></span> Coupons <span class="text-light-white">(2)</span>
+                                </label>
+                                                                <label class="custom-checkbox">
+                                  <input type="checkbox" name="#"> <span class="checkmark"></span> New <span class="text-light-white">(3)</span>
+                                </label>
+                                                                <label class="custom-checkbox">
+                                  <input type="checkbox" name="#"> <span class="checkmark"></span> Order Tracking <span class="text-light-white">(6)</span>
+                                </label>
+                                                                <label class="custom-checkbox">
+                                  <input type="checkbox" name="#"> <span class="checkmark"></span> Open Now [6:05am] <span class="text-light-white">(10)</span>
+                                </label>
+                                                                <label class="custom-checkbox">
+                                  <input type="checkbox" name="#"> <span class="checkmark"></span> Free Delivery <span class="text-light-white">(6)</span>
+                                </label>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header"> <a class="card-link text-light-black fw-700 fs-16" data-toggle="collapse" href="#delivery-cateringscollapseTwo">
+                                Rating
+                              </a>
+                                                    </div>
+                                                    <div id="delivery-cateringscollapseTwo" class="collapse show">
+                                                        <div class="card-body">
+                                                            <div class="rating">
+                                                                <button class="text-yellow"><i class="fas fa-star"></i>
+                                </button>
+                                                                <button class="text-yellow"><i class="fas fa-star"></i>
+                                </button>
+                                                                <button class="text-yellow"><i class="fas fa-star"></i>
+                                </button>
+                                                                <button class="text-yellow"><i class="fas fa-star"></i>
+                                </button>
+                                                                <button class="text-yellow"><i class="fas fa-star"></i>
+                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header"> <a class="card-link text-light-black fw-700 fs-16" data-toggle="collapse" href="#delivery-cateringscollapseThree">
+                                  Price
+                                </a>
+                                                    </div>
+                                                    <div id="delivery-cateringscollapseThree" class="collapse show">
+                                                        <div class="card-body">
+                                                            <div class="rating">
+                                                                <button class="text-success">$</button>
+                                                                <button class="text-success">$$</button>
+                                                                <button class="text-success">$$$</button>
+                                                                <button class="text-success">$$$$</button>
+                                                                <button class="text-success">$$$$$</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="advertisement-slider swiper-container p-relative h-auto mb-md-40">
+                        <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="testimonial-wrapper">
+                                        <div class="testimonial-box">
+                                            <div class="testimonial-img p-relative">
+                                                <a href="restaurant.html">
+                                                    <img src="assets/img/blog/438x180/shop-1.jpg" class="img-fluid full-width" alt="testimonial-img">
+                                                </a>
+                                                <div class="overlay">
+                                                    <div class="brand-logo">
+                                                        <img src="assets/img/logo-4.jpg" class="img-fluid" alt="logo">
+                                                    </div>
+                                                    <div class="add-fav text-success">
+                                                        <img src="assets/img/svg/013-heart-1.svg" alt="tag">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="testimonial-caption padding-15">
+                                                <p class="text-light-white text-uppercase no-margin fs-12">Featured</p>
+                                                <h5 class="fw-600"><a href="restaurant.html" class="text-light-black">GSA King Tomato Farm</a></h5>
+                                                <div class="testimonial-user-box">
+                                                    <img src="assets/img/blog-details/40x40/user-1.png" class="rounded-circle" alt="#">
+                                                    <div class="testimonial-user-name">
+                                                        <p class="text-light-black fw-600">Sarra</p> <i class="fas fa-trophy text-black"></i><span class="text-light-black">Top Reviewer</span>
+                                                    </div>
+                                                </div>
+                                                <div class="ratings"> <span class="text-yellow fs-16">
+                                                              <i class="fas fa-star"></i>
+                                                            </span>
+                                                                                    <span class="text-yellow fs-16">
+                                                              <i class="fas fa-star"></i>
+                                                            </span>
+                                                                                    <span class="text-yellow fs-16">
+                                                              <i class="fas fa-star"></i>
+                                                            </span>
+                                                                                    <span class="text-yellow fs-16">
+                                                              <i class="fas fa-star"></i>
+                                                            </span>
+                                                                                    <span class="text-yellow fs-16">
+                                                              <i class="fas fa-star"></i>
+                                                            </span>
+                                                </div>
+                                                <p class="text-light-black">Delivery was fast and friendly...</p>
+                                                <p class="text-light-white fw-100"><strong class="text-light-black fw-700">Local delivery: </strong> From $7.99 (4.0 mi)</p>
+                                                <a href="checkout.html" class="btn-second btn-submit">Order Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="testimonial-wrapper">
+                                        <div class="testimonial-box">
+                                            <div class="testimonial-img p-relative">
+                                                <a href="restaurant.html">
+                                                    <img src="assets/img/blog/438x180/shop-2.jpg" class="img-fluid full-width" alt="testimonial-img">
+                                                </a>
+                                                <div class="overlay">
+                                                    <div class="brand-logo">
+                                                        <img src="assets/img/user/user-2.png" class="img-fluid" alt="logo">
+                                                    </div>
+                                                    <div class="add-fav text-success"><img src="assets/img/svg/013-heart-1.svg" alt="tag">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="testimonial-caption padding-15">
+                                                <p class="text-light-white text-uppercase no-margin fs-12">Featured</p>
+                                                <h5 class="fw-600"><a href="restaurant.html" class="text-light-black">GSA King Tomato Farm</a></h5>
+                                                <div class="testimonial-user-box">
+                                                    <img src="assets/img/blog-details/40x40/user-2.png" class="rounded-circle" alt="#">
+                                                    <div class="testimonial-user-name">
+                                                        <p class="text-light-black fw-600">Sarra</p> <i class="fas fa-trophy text-black"></i><span class="text-light-black">Top Reviewer</span>
+                                                    </div>
+                                                </div>
+                                                <div class="ratings"> <span class="text-yellow fs-16">
+                                                      <i class="fas fa-star"></i>
+                                                    </span>
+                                                                            <span class="text-yellow fs-16">
+                                                      <i class="fas fa-star"></i>
+                                                    </span>
+                                                                            <span class="text-yellow fs-16">
+                                                      <i class="fas fa-star"></i>
+                                                    </span>
+                                                                            <span class="text-yellow fs-16">
+                                                      <i class="fas fa-star"></i>
+                                                    </span>
+                                                                            <span class="text-yellow fs-16">
+                                                      <i class="fas fa-star"></i>
+                                                    </span>
+                                                </div>
+                                                <p class="text-light-black">Delivery was fast and friendly...</p>
+                                                <p class="text-light-white fw-100"><strong class="text-light-black fw-700">Local delivery: </strong> From $7.99 (4.0 mi)</p>
+                                                <a href="checkout.html" class="btn-second btn-submit">Order Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="testimonial-wrapper">
+                                        <div class="testimonial-box">
+                                            <div class="testimonial-img p-relative">
+                                                <a href="restaurant.html">
+                                                    <img src="assets/img/blog/438x180/shop-2.jpg" class="img-fluid full-width" alt="testimonial-img">
+                                                </a>
+                                                <div class="overlay">
+                                                    <div class="brand-logo">
+                                                        <img src="assets/img/user/user-1.png" class="img-fluid" alt="logo">
+                                                    </div>
+                                                    <div class="add-fav text-success"><img src="assets/img/svg/013-heart-1.svg" alt="tag">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="testimonial-caption padding-15">
+                                                <p class="text-light-white text-uppercase no-margin fs-12">Featured</p>
+                                                <h5 class="fw-600"><a href="restaurant.html" class="text-light-black">GSA King Tomato Farm</a></h5>
+                                                <div class="testimonial-user-box">
+                                                    <img src="assets/img/blog-details/40x40/user-3.png" class="rounded-circle" alt="#">
+                                                    <div class="testimonial-user-name">
+                                                        <p class="text-light-black fw-600">Sarra</p> <i class="fas fa-trophy text-black"></i><span class="text-light-black">Top Reviewer</span>
+                                                    </div>
+                                                </div>
+                                                <div class="ratings"> <span class="text-yellow fs-16">
+                                                  <i class="fas fa-star"></i>
+                                                </span>
+                                                                        <span class="text-yellow fs-16">
+                                                  <i class="fas fa-star"></i>
+                                                </span>
+                                                                        <span class="text-yellow fs-16">
+                                                  <i class="fas fa-star"></i>
+                                                </span>
+                                                                        <span class="text-yellow fs-16">
+                                                  <i class="fas fa-star"></i>
+                                                </span>
+                                                                        <span class="text-yellow fs-16">
+                                                  <i class="fas fa-star"></i>
+                                                </span>
+                                                </div>
+                                                <p class="text-light-black">Delivery was fast and friendly...</p>
+                                                <p class="text-light-white fw-100"><strong class="text-light-black fw-700">Local delivery: </strong> From $7.99 (4.0 mi)</p>
+                                                <a href="checkout.html" class="btn-second btn-submit">Order Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </aside>
+                <div class="col-lg-9 browse-cat border-0">
+                    <div class="row">
+                        
+                         <div class="col-12">
+                            <div class="section-header-left">
+                                <h3 class="text-light-black header-title title">Top Dishes</h3>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="near-offer-slider swiper-container  mb-xl-20">
+                                <div class="swiper-wrapper">
+                                   {% for i in popularItems  %}
+                                        <div class="swiper-slide">
+                                            <div class="product-box">
+                                                <div class="product-img">
+                                                    <a href="restaurant.html">
+                                                        <img src="https://i0.wp.com/www.eatthis.com/wp-content/uploads//media/images/ext/277582276/kfc-chicken-drumstick-2-piece.jpg?fit=900%2C660&ssl=1" class="img-fluid full-width" alt="product-img">
+                                                    </a>
+                                                </div>
+                                                <div class="product-caption">
+                                                    <div class="title-box">
+                                                        <h3 class="product-title" style="font-size:25px;"> {{i.name}}</h3>
+                                                    </div>
+                                                    <p class="text-light-white">{{i.category.name}}</p>
+                                                    <div class="product-details">
+                                                        <div class="price-time"> <span class="text-light-black time" style="font-size:20px;"><strong>$10 min</strong></span>
+                                                            <span class="text-light-white price">About{{i.pTime}} min</span>
+                                                        </div>
+                                                        <div class="rating"> 
+                                                                                <span>
+                                                                                    {% if i.rating < 1 %}
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                    {% elif i.rating > 1 and i.rating <= 2 %}
+                                                                                    
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                    
+                                                                                    {% elif i.rating > 2 and i.rating <= 3 %}
+                                                                                    
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+
+                                                                                    {% elif i.rating > 3 and i.rating <= 4 %}
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                    {% elif i.rating > 4 and i.rating <= 5 %}
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                            <i class="fas fa-star text-yellow"></i>
+                                                                                    {% endif %}
+                                                                             </span>
+                                                            <span class="text-light-white text-right">4225 ratings</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-footer-2">
+                                                    <div class="discount"> <span class="text-success fs-12">$3 off</span>
+                                                    </div>
+                                                    <div class="discount-coupon"> <span class="text-light-white fs-12">First order only</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>   
+
+                                   {% endfor %}
+                                    
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                           
+                        {% for i in item %}
+                            <div class="product-list-view">
+                                <div class="product-list-info">
+                                    <div class="product-list-img">
+                                        <a href="restaurant.html">
+                                            <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2019/10/9/DV3016_masala-dosa_s4x3.jpg.rend.hgtvcom.616.462.suffix/1570635680579.jpeg" class="img-fluid" alt="#">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="product-right-col" >
+                                    <div class="product-list-details">
+                                        <div class="product-list-title">
+                                            <div class="product-info">
+                                                <h6><a href="restaurant.html" class="text-light-black fw-600">{{i.name}}</a></h6>
+                                                <p class="text-light-white fs-12">{{i.category.name}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="product-detail-right-box">
+                                            <div class="product-list-rating text-center">
+                                                <div class="ratings"> <span class="text-yellow"><i class="fas fa-star"></i></span>
+                                                    <span class="text-yellow"><i class="fas fa-star"></i></span>
+                                                    <span class="text-yellow"><i class="fas fa-star"></i></span>
+                                                    <span class="text-yellow"><i class="fas fa-star"></i></span>
+                                                    <span class="text-yellow"><i class="fas fa-star-half-alt"></i></span>
+                                                </div>
+                                                <div class="rating-text">
+                                                    <p class="text-light-white fs-12">3845 ratings</p>
+                                                </div>
+                                            </div>
+                                            <div class="product-list-tags"> <span class="text-custom-white rectangle-tag bg-gradient-red">
+                                                10%
+                                                </span>
+                                                <span class="rectangle-tag bg-gradient-green text-custom-white">
+                                                Trending
+                                                </span>
+                                            </div>
+                                           
+                                            <div class="product-list-label"> <span class="rectangle-tag bg-gradient-red text-custom-white">Label</span>
+                                                <span class="rectangle-tag bg-dark text-custom-white">Combo</span>
+                                            </div>
+                                            <div class="product-list-price">
+                                                <div class="price">
+                                                    <h6 class="text-light-black no-margin">$0</h6>
+                                                    <span class="text-light-white">Minimum</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-list-bottom">
+                                        <div class="product-list-type"> <span class="text-light-white new">New</span>
+                                            <span class="text-custom-white square-tag">
+                                                <img src="{% static 'img/svg/004-leaf.svg'%}" alt="tag">
+                                            </span>
+                                                                    <span class="text-custom-white square-tag">
+                                                <img src="{% static 'img/svg/006-chili.svg'%}" alt="tag">
+                                            </span>
+                                                                    <span class="text-custom-white square-tag">
+                                                <img src="{% static 'img/svg/005-chef.svg'%}" alt="tag">
+                                            </span>
+                                                                    <span class="text-custom-white square-tag">
+                                                <img src="{% static 'img/svg/008-protein.svg'%}" alt="tag">
+                                            </span>
+                                                                    <span class="text-custom-white square-tag">
+                                                <img src="{% static 'img/svg/009-lemon.svg'%}" alt="tag">
+                                            </span>
+                                                                </div>
+                                                                <div class="mob-tags-label"> <span class="text-custom-white rectangle-tag bg-gradient-red">
+                                                10%
+                                                </span>
+                                                                    <span class="rectangle-tag bg-gradient-green text-custom-white">
+                                                Trending
+                                            </span>
+                                                                    <span class="rectangle-tag bg-gradient-red text-custom-white">Label</span>
+                                                                    <span class="rectangle-tag bg-dark text-custom-white">Combo</span>
+                                                                </div>
+                                                                <div class="product-list-time"> <span class="circle-tag">
+                                                <img src="assets/img/svg/013-heart-1.svg" alt="tag">
+                                            </span>
+                                            <ul>
+                                                <a href="" class='btn btn-danger'>Add To Cart?</a>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                       
+                        <div class="col-12">
+                            
+                            <div class="custom-pagination">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination">
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a>
+                                        </li>
+                                        <li class="page-item active"><a class="page-link" href="#">2</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock content %}
+

@@ -21,6 +21,9 @@
                         </div>
                         <div class="login-box">
                             <div class="col-12">
+                                {% if user.is_authenticated %}
+                                    <h2 class="text-danger fw-700">Welcome, {{user}}</h2>
+                                {% endif %}
                                 <h1 class="text-light-black fw-700">KloudKitchen food delivery every time</h1>
                                 <div class="input-group row">
                                     <div class="input-group2 col-xl-8">
@@ -61,7 +64,7 @@
                     <div class="large-product-box mb-xl-20 p-relative">
                         <img src="{% static 'img/restaurants/255x587/Banner-10.jpg' %}" class="img-fluid full-width" alt="image">
                         <div class="category-type overlay padding-15">
-                            <button class="category-btn">Most popular near you</button> <a href="restaurant.html" class="btn-first white-btn text-light-black fw-600 full-width">See all</a>
+                            <button class="category-btn">Most popular near you</button> <a href="{% url 'breakfast' %}" class="btn-first white-btn text-light-black fw-600 full-width">See all</a>
                         </div>
                     </div>
                 </div>
@@ -99,7 +102,7 @@
                                                                                     {% elif i.rating > 2 and i.rating <= 3 %}
                                                                                      <span class="text-custom-white rectangle-tag bg-yellow">{{i.rating}}</span>
                                                                                      {% elif i.rating > 3 and i.rating <= 4 %}
-                                                                                     <span class="text-custom-white rectangle-tag bg-blue">{{i.rating}}</span>
+                                                                                     <span class="text-custom-white rectangle-tag bg-primary">{{i.rating}}</span>
                                                                                      {% elif i.rating > 4 and i.rating <= 5 %}
                                                                                      <span class="text-custom-white rectangle-tag bg-success">{{i.rating}}</span>
                                                                                     {% endif %}
@@ -143,7 +146,11 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-footer"> 
-                                                        <a href="" class='btn btn-danger '><i class="fas fa-shopping-cart"></i> Add To Cart?</a>
+                                                        {% if user.is_authenticated %}
+                                                        <a href="{% url 'addToCart' i.id %}" class='btn btn-danger '><i class="fas fa-shopping-cart"></i> Add To Cart?</a>
+                                                        {% else %}
+                                                        <a href="" class='btn btn-primary '><i class="fas fa-user"></i> Login</a>
+                                                        {% endif %}
                                                     </div>
                                 </div>
                             </div>
@@ -217,7 +224,7 @@
                     <div class="large-product-box mb-xl-20 p-relative">
                         <img src="{% static 'img/restaurants/255x587/Banner-10.jpg' %}" class="img-fluid full-width" alt="image">
                         <div class="category-type overlay padding-15">
-                            <button class="category-btn">Most popular near you</button> <a href="restaurant.html" class="btn-first white-btn text-light-black fw-600 full-width">See all</a>
+                            <button class="category-btn">Most popular near you</button> <a href="{% url 'lunch' %}" class="btn-first white-btn text-light-black fw-600 full-width">See all</a>
                         </div>
                     </div>
                 </div>
@@ -255,7 +262,7 @@
                                                                                     {% elif i.rating > 2 and i.rating <= 3 %}
                                                                                      <span class="text-custom-white rectangle-tag bg-yellow">{{i.rating}}</span>
                                                                                      {% elif i.rating > 3 and i.rating <= 4 %}
-                                                                                     <span class="text-custom-white rectangle-tag bg-blue">{{i.rating}}</span>
+                                                                                     <span class="text-custom-white rectangle-tag bg-primary">{{i.rating}}</span>
                                                                                      {% elif i.rating > 4 and i.rating <= 5 %}
                                                                                      <span class="text-custom-white rectangle-tag bg-success">{{i.rating}}</span>
                                                                                     {% endif %}
@@ -299,7 +306,11 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-footer"> 
-                                                        <a href="" class='btn btn-danger '><i class="fas fa-shopping-cart"></i> Add To Cart?</a>
+                                                        {% if user.is_authenticated %}
+                                                            <a href="{% url 'addToCart' i.id %}" class='btn btn-danger '><i class="fas fa-shopping-cart"></i> Add To Cart?</a>
+                                                        {% else %}
+                                                            <a href="" class='btn btn-primary '><i class="fas fa-user"></i> Login</a>
+                                                        {% endif %}
                                                     </div>
                                 </div>
                             </div>
@@ -409,7 +420,7 @@
                                                                                     {% elif i.rating > 2 and i.rating <= 3 %}
                                                                                      <span class="text-custom-white rectangle-tag bg-yellow">{{i.rating}}</span>
                                                                                      {% elif i.rating > 3 and i.rating <= 4 %}
-                                                                                     <span class="text-custom-white rectangle-tag bg-blue">{{i.rating}}</span>
+                                                                                     <span class="text-custom-white rectangle-tag bg-primary">{{i.rating}}</span>
                                                                                      {% elif i.rating > 4 and i.rating <= 5 %}
                                                                                      <span class="text-custom-white rectangle-tag bg-success">{{i.rating}}</span>
                                                                                     {% endif %}
@@ -453,7 +464,11 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-footer"> 
-                                                        <a href="" class='btn btn-danger '><i class="fas fa-shopping-cart"></i> Add To Cart?</a>
+                                                        {% if user.is_authenticated %}
+                                                            <a href="{% url 'addToCart' i.id %}" class='btn btn-danger '><i class="fas fa-shopping-cart"></i> Add To Cart?</a>
+                                                        {% else %}
+                                                            <a href="" class='btn btn-primary '><i class="fas fa-user"></i> Login</a>
+                                                        {% endif %}
                                                     </div>
                                 </div>
                             </div>
