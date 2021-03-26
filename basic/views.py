@@ -4,28 +4,46 @@ from django.contrib.auth import login , logout , authenticate
 from django.utils import timezone
 from django.http import HttpResponse
 from .forms import NewUser, NewCheckOut
-
+from .maxItems import get_maximum_items
 def homepage(request):
-    return render(request , 'basic/index.html')
+    cat = Category.objects.all()
+    
+    params = {
+        'cat':cat
+    }
+    return render(request , 'basic/index.html' , params)
+def category(request ,pk):
+    items = Item.objects.filter(category__id = pk)
+    categoryName = items.first()
+    itemsByRating = items.order_by('-rating')
+    l1 = get_maximum_items(pk)
+    if request.method == 'POST':
+        minAmount = request.POST.get('minAmount')[1:]
+        maxAmount = request.POST.get('maxAmount')[1:]
+        items = Item.objects.filter(category__id=pk , price__gte = minAmount , price__lte= maxAmount)
+        
+    params ={
+        'items' : items,
+        'category' :categoryName,
+        'itemsByRating':items,
+        'topItems' : l1
+    }
+    return render(request , 'basic/category.html' , params)
 
+
+def item(request , pk):
+    item = Item.objects.get(id=pk)
+
+    params = {
+        'item':item
+    }
+    return render(request , 'basic/itemDetail.html' , params)
 def menu(request):
-    item1 = Item.objects.filter(category__name='BreakFast')
-    item2 = Item.objects.filter(category__name='Lunch')
-    item3 = Item.objects.filter(category__name='Dinner')
-
-    category1 = Category.objects.get(name='BreakFast')
-    category2 = Category.objects.get(name='Lunch')
-    category3 = Category.objects.get(name='Dinner')
-
     
     params = {
         #filter items by category
-        'breakfast': item1,
-        'lunch': item2,
-        'dinner': item3,
-        'category1' : category1,
-        'category2' : category2,
-        'category3' : category3,
+        
+       
 
 
 
@@ -35,49 +53,6 @@ def menu(request):
 #Three Course meal Start
 #BreakFast
 
-def breakfast(request):
-    item1 = Item.objects.filter(category__name='BreakFast')
-    itemCount = Item.objects.filter(category__name='BreakFast').count()
-
-    popularItems = item1.filter(rating__gte = 3)
-    
-    params = {
-        'item': item1 ,
-        'count': itemCount,
-        'popularItems' : popularItems
-    }
-    return render(request , 'basic/category/breakfast.html' , params)
-
-
-#Lunch
-def lunch(request):
-    item1 = Item.objects.filter(category__name='Lunch')
-    itemCount = item1.count()
-    popularItems = item1.filter(rating__gte = 3)
-
-    params = {
-        'item' : item1,
-        'count': itemCount,
-        'popularItems' : popularItems
-    }
-    return render(request , 'basic/category/lunch.html' , params)
-
-
-
-#dinner
-def dinner(request):
-    item1 = Item.objects.filter(category__name='Lunch')
-    itemCount = item1.count()
-    popularItems = item1.filter(rating__gte = 3)
-
-    params = {
-        'item' : item1,
-        'count': itemCount,
-        'popularItems' : popularItems
-    }
-    return render(request , 'basic/category/dinner.html', params)
-
-#three course meal ends
 
 def addToCart(request, pk):
     item = Item.objects.get(id=pk)
@@ -114,7 +89,7 @@ def recipt(request):
     params = {
         'order': order
     }
-    return render(request , 'basic/recipt.html', params)
+    return render(request , 'basic/cart.html', params)
 
 def loginPage(request):
     if request.method == 'POST':
@@ -124,11 +99,11 @@ def loginPage(request):
 
         if user is not None:
             login(request , user)
-            return redirect('menu')
+            return redirect('homepage')
         else:
-            return redirect('breakfast')
+            return redirect('cart')
 
-    return render(request , 'basic/auth/login.html')
+    return render(request , 'basic/loginPage.html')
 
 def logoutPage(request):
     logout(request)
@@ -174,6 +149,14 @@ def checkout(request):
         'form': form
     }
     return render(request , 'basic/checkout.html' , params)
+
+
+def becomePartner(request):
+    return render(request , 'basic/becomePartner.html')
+
+
+def adminPage(request):
+    return render(request , 'basic/admin/dashboard.html')
     
             
 

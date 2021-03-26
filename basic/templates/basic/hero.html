@@ -1,0 +1,44 @@
+ <section class="hero">
+ {% load static %}
+        <div class="container mt-2">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="hero__categories">
+                        <div class="hero__categories__all">
+                            <i class="fa fa-bars"></i>
+                            <span>All departments</span>
+                        </div>
+                        <ul>
+                        {% for i in cat %}
+                            <li><a href="{% url 'category' i.id %}">{{i}}</a></li>
+                        {% endfor %}    
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="hero__search">
+                        <div class="hero__search__phone__text d-flex justify-content-center">
+                           
+                        </div>
+                        <a href="{% url 'becomePartner' %}" ><div class="hero__search__phone border-left border-bottom p-2 " style="background-color:#F7F7F7; box-shadow:1px 1px; ">
+                            <div class="hero__search__phone__icon" style="border:1px solid #A4A7AB;">
+                                <i class="fa fa-phone " ></i>
+                            </div>
+                            <div class="hero__search__phone__text">
+                                <h5>Become a partner?</h5>
+                                <span>subtext required here!</span>
+                            </div>
+                        </div></a>
+                    </div>
+                    <div class="hero__item set-bg" data-setbg="{% static 'img/hero/banner.jpg' %}">
+                        <div class="hero__text">
+                            <span>LELO Mart</span>
+                            <h2>Vegetable <br />100% Organic</h2>
+                            <p>Free Pickup and Delivery Available</p>
+                            <a href="{% url 'menu' %}" class="primary-btn">SHOP NOW</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

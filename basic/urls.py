@@ -4,11 +4,9 @@ from . import views
 urlpatterns = [
     path('' , views.homepage , name='homepage'),
     path('menu' , views.menu , name='menu'),
-    
+    path('item/<str:pk>/' , views.item , name='item'),
     #categoryWise
-    path('breakfast' , views.breakfast , name='breakfast'),
-    path('lunch' , views.lunch , name='lunch'),
-    path('dinner' , views.dinner , name='dinner'),
+    
     path('recipt' , views.recipt , name='recipt'),
 
 
@@ -23,8 +21,16 @@ urlpatterns = [
 
     #Checkout
     path('checkout'  , views.checkout , name='checkout'),
+
     #profile
-    path('profile', views.profile , name='profile')
+    path('profile', views.profile , name='profile'),
+    path('category/<str:pk>/' , views.category , name='category'), 
+
+    path('becomePartner' , views.becomePartner, name="becomePartner"),
+
+
+    #admin 
+    path('adminPage' , views.adminPage , name='adminPage')
 
 
 ]
